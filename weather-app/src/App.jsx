@@ -7,8 +7,8 @@ function App() {
   return (
     <>
       <ContextProvider>
-        <DispalyWeather />
         <Search />
+        <DispalyWeather />
       </ContextProvider>
     </>
   );
