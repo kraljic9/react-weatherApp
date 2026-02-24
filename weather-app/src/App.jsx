@@ -1,9 +1,18 @@
 import "./App.css";
+import DispalyWeather from "./Components/DisplayWeather";
+import Search from "./Components/Search";
+import ContextProvider from "./Context/ContextProvider";
 
 function App() {
   return (
     <>
-      <h1>Weather app</h1>
+      <Search />
+      <DispalyWeather />
+
+      <ContextProvider>
+        <DispalyWeather />
+        <Search />
+      </ContextProvider>
     </>
   );
 }
