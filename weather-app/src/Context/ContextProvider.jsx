@@ -1,27 +1,29 @@
 import { useState } from "react";
 import { WeatherContext } from "./WeatherContext";
 
-function ContextProvider({ Children }) {
+function ContextProvider({ children }) {
   const [weatherData, setWeatherData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   const APIkey = import.meta.env.VITE_API_KEY;
 
-  async function fetchWeather() {
+  async function fetchWeather(city) {
     try {
+      setLoading(true);
+      setError(null);
+
       const response = await fetch(
-        `https://api.openweathermap.org/data/2.5/weather?q=London&appid=${APIkey}&units=metric`,
+        `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${APIkey}&units=metric`,
       );
 
       if (!response.ok) throw new Error("Error accured while fetching data");
 
       const data = await response.json();
 
-      data ? setWeatherData(data) : false;
+      setWeatherData(data);
     } catch (err) {
       setError(err.message);
-      setLoading(false);
     } finally {
       setLoading(false);
     }
@@ -32,7 +34,7 @@ function ContextProvider({ Children }) {
       <WeatherContext.Provider
         value={{ weatherData, loading, error, fetchWeather }}
       >
-        {Children}
+        {children}
       </WeatherContext.Provider>
     </>
   );
