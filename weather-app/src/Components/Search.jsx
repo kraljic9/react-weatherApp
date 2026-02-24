@@ -7,14 +7,15 @@ function Search() {
 
   const [city, setCity] = useState("");
 
-  function handleSearc() {
+  function handleSearch() {
     fetchWeather(city);
+    console.log(weatherData);
   }
 
   return (
     <>
       <input type="text" onChange={(e) => setCity(e.target.value)} />
-      <button onClick={handleSearc}>Search</button>
+      <button onClick={handleSearch}>Search</button>
     </>
   );
 }
