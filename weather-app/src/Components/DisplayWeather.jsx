@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { WeatherContext } from "../Context/WeatherContext";
 
 function DispalyWeather() {
@@ -21,15 +21,6 @@ function DispalyWeather() {
     "friday",
     "saturday",
   ];
-
-  /*
-☀️
-☁️
-🌧️
-🌨️
-⛈️
-🌫️
-  */
 
   const weatherTxt = weatherData.list[0].weather.main;
 
