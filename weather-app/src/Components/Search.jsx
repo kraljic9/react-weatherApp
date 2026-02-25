@@ -1,9 +1,8 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { WeatherContext } from "../Context/WeatherContext";
 
 function Search() {
-  const { loading, error, weatherData, fetchWeather } =
-    useContext(WeatherContext);
+  const { weatherData, fetchWeather } = useContext(WeatherContext);
 
   const [city, setCity] = useState("");
 
