@@ -2,9 +2,13 @@ import { useContext } from "react";
 import { WeatherContext } from "../Context/WeatherContext";
 
 function DispalyWeather() {
-  const { weatherData } = useContext(WeatherContext);
+  const { weatherData, loading, error } = useContext(WeatherContext);
 
   if (!weatherData) return null;
+
+  if (loading) return <h1>Loading...</h1>;
+
+  if (error) return <h1>{error}</h1>;
 
   const dailyFilter = weatherData.list.filter((weather) =>
     weather.dt_txt.includes("12:00:00"),
@@ -43,10 +47,17 @@ function DispalyWeather() {
       <div className="today-forcast">
         <div className="today-weather-img">{emoji}</div>
         <div className="today-weather-data">
-          <p>Today</p>
-          <p className="city-name">{weatherData.city.name}</p>
-          <p>Temperature: {weatherData.list[0].main.temp}°C</p>
-          <p>{weatherData.list[0].weather[0].description}</p>
+          <p className="today-txt">Today</p>
+          <h1 className="city-name">{weatherData.city.name}</h1>
+
+          <div className="weather-description">
+            <p className="today-temperature">
+              Temperature: {weatherData.list[0].main.temp}°C
+            </p>
+            <p className="today-weather-description">
+              {weatherData.list[0].weather[0].description}
+            </p>
+          </div>
         </div>
       </div>
 
