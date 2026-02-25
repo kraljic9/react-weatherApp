@@ -52,7 +52,7 @@ function DispalyWeather() {
 
           <div className="weather-description">
             <p className="today-temperature">
-              Temperature: {weatherData.list[0].main.temp}°C
+              Temperature: {Math.round(weatherData.list[0].main.temp)}°C
             </p>
             <p className="today-weather-description">
               {weatherData.list[0].weather[0].description}
@@ -65,6 +65,11 @@ function DispalyWeather() {
         {dailyFilter.map((weather) => {
           const day = new Date(weather.dt_txt);
           const weatherTxt = weather.weather[0].main;
+
+          let dayName =
+            days[day.getDay()][0].toUpperCase() + days[day.getDay()].slice(1);
+
+          console.log(dayName);
 
           const weatherEmojis = {
             Clear: "☀️",
@@ -82,10 +87,10 @@ function DispalyWeather() {
 
           return (
             <div className="daily-weather-box" key={weather.dt}>
-              <p className="day">{days[day.getDay()]}</p>
+              <p className="day">{dayName}</p>
               <div className="daily-weather-img">{emoji}</div>
               <div className="daily-weather-temperature">
-                {weather.main.temp}°C
+                {Math.round(weather.main.temp)}°C
               </div>
             </div>
           );
