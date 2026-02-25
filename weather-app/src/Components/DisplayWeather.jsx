@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { WeatherContext } from "../Context/WeatherContext";
 
 function DispalyWeather() {
@@ -6,11 +6,11 @@ function DispalyWeather() {
 
   if (!weatherData) return null;
 
-  console.log(weatherData);
-
   const dailyFilter = weatherData.list.filter((weather) =>
     weather.dt_txt.includes("12:00:00"),
   );
+
+  console.log(weatherData);
 
   let days = [
     "sunday",
@@ -22,10 +22,35 @@ function DispalyWeather() {
     "saturday",
   ];
 
+  /*
+☀️
+☁️
+🌧️
+🌨️
+⛈️
+🌫️
+  */
+
+  const weatherTxt = weatherData.list[0].weather.main;
+
+  const weatherEmojis = {
+    Clear: "☀️",
+    Clouds: "☁️",
+    Rain: "🌧️",
+    Drizzle: "🌦️",
+    Thunderstorm: "⛈️",
+    Snow: "🌨️",
+    Mist: "🌫️",
+    Fog: "🌫️",
+    Haze: "🌫️",
+  };
+
+  const emoji = weatherEmojis[weatherTxt] || "🌤️";
+
   return (
     <div className="display-weather-container">
       <div className="today-forcast">
-        <img src="" alt="" className="today-weather-img" />
+        <div className="today-weather-img">{emoji}</div>
         <div className="today-weather-data">
           <p>Today</p>
           <p className="city-name">{weatherData.city.name}</p>
@@ -37,11 +62,26 @@ function DispalyWeather() {
       <div className="daily-forcast">
         {dailyFilter.map((weather) => {
           const day = new Date(weather.dt_txt);
+          const weatherTxt = weather.weather[0].main;
+
+          const weatherEmojis = {
+            Clear: "☀️",
+            Clouds: "☁️",
+            Rain: "🌧️",
+            Drizzle: "🌦️",
+            Thunderstorm: "⛈️",
+            Snow: "🌨️",
+            Mist: "🌫️",
+            Fog: "🌫️",
+            Haze: "🌫️",
+          };
+
+          const emoji = weatherEmojis[weatherTxt] || "🌤️";
 
           return (
             <div className="daily-weather-box" key={weather.dt}>
               <p className="day">{days[day.getDay()]}</p>
-              <img src="" alt="" className="daily-weather-img" />
+              <div className="daily-weather-img">{emoji}</div>
               <div className="daily-weather-temperature">
                 {weather.main.temp}°C
               </div>
