@@ -64,5 +64,33 @@ body {
   border: 3px solid green;
   display: flex;
   grid-column: 1 / 4;
-  grid-row: 4 / 5;
+  grid-row: 4 / 6;
+  justify-content: space-around;
+}
+
+.daily-weather-box {
+  border: 3px solid orange;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.day {
+  border: 1px solid purple;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.daily-weather-img {
+  border: 1px solid red;
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.daily-weather-temperature {
+  border: 1px solid blue;
+  font-size: 1.5rem;
 }
