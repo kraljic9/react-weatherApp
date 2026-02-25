@@ -5,18 +5,32 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .display-weather-container {
+  animation: fadeInSlide 0.5s ease-out forwards;
   width: 80%;
-  border: 3px solid;
   padding: 20px;
   display: grid;
   grid-template-rows: repeat(5, 1fr);
   grid-template-columns: repeat(3, 1fr);
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 8px;
+  margin: 0 auto;
 }
 
 .today-forcast {
-  border: 3px solid red;
   grid-column: 1 / 4;
   grid-row: 1 / 4;
   display: flex;
@@ -24,7 +38,6 @@ body {
 }
 
 .today-weather-data {
-  border: 3px solid purple;
   width: 60%;
   margin-top: 20px;
 }
@@ -32,7 +45,6 @@ body {
 .today-weather-img {
   font-size: 10rem;
   width: 40%;
-  border: 1px solid;
   display: flex;
   justify-content: center;
 }
@@ -49,19 +61,16 @@ body {
 
 .today-temperature {
   font-size: 1.5rem;
-  color: hsl(0, 0%, 60%);
   font-weight: 500;
 }
 
 .today-weather-description {
   font-size: 1.5rem;
-  color: hsl(0, 0%, 60%);
   font-weight: 500;
   line-height: 0px;
 }
 
 .daily-forcast {
-  border: 3px solid green;
   display: flex;
   grid-column: 1 / 4;
   grid-row: 4 / 6;
@@ -69,28 +78,59 @@ body {
 }
 
 .daily-weather-box {
-  border: 3px solid orange;
   padding: 8px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: 0;
   align-items: center;
   width: 200px;
+  z-index: 1;
+  border: none;
+  border-radius: 16px;
+  background-color: rgba(255, 255, 255, 0.3);
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 .day {
-  border: 1px solid purple;
   font-size: 1.5rem;
   font-weight: bold;
+  margin-bottom: 16px;
 }
 
 .daily-weather-img {
-  border: 1px solid red;
-  font-size: 2rem;
+  font-size: 3rem;
   margin-bottom: 10px;
 }
 
 .daily-weather-temperature {
-  border: 1px solid blue;
+  margin-top: 16px;
   font-size: 1.5rem;
+}
+
+.weather-search-input {
+  padding: 8px;
+  width: 40%;
+  font-size: 1.3rem;
+  border-radius: 16px;
+}
+
+.weather-searc-btn {
+  padding: 8px 12px;
+  font-weight: bold;
+  font-size: 1.3rem;
+  background-color: black;
+  color: white;
+  transition: background-color 0.3s ease;
+  margin-left: 10px;
+}
+
+.weather-searc-btn:hover {
+  background-color: rgb(0, 0, 0, 0.1);
+}
+
+.nav-search {
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
