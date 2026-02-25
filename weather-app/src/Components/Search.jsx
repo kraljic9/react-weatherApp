@@ -13,8 +13,17 @@ function Search() {
 
   return (
     <>
-      <input type="text" onChange={(e) => setCity(e.target.value)} />
-      <button onClick={handleSearch}>Search</button>
+      <div className="nav-search">
+        <input
+          type="text"
+          onChange={(e) => setCity(e.target.value)}
+          className="weather-search-input"
+          placeholder="Enter a city..."
+        />
+        <button onClick={handleSearch} className="weather-searc-btn">
+          Search
+        </button>
+      </div>
     </>
   );
 }
