@@ -3,7 +3,7 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   font-family: Arial, Helvetica, sans-serif;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 @keyframes fadeInSlide {
@@ -156,10 +156,6 @@ body {
     height: auto;
   }
 
-  .daily-weather-box {
-    border: 1px solid;
-  }
-
   .daily-weather-img {
     font-size: 2rem;
   }
@@ -213,6 +209,9 @@ body {
 
   .city-name {
     margin-bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .today-txt {
@@ -222,5 +221,95 @@ body {
   .today-weather-img {
     margin-bottom: 0px;
     font-size: 9rem;
+  }
+}
+
+@media (320px <= width <= 425px) {
+  .daily-weather-img {
+    font-size: 2rem;
+  }
+
+  .day {
+    font-size: 1.2rem;
+  }
+
+  body {
+    height: auto;
+  }
+
+  .daily-weather-img {
+    font-size: 2rem;
+  }
+
+  .day {
+    font-size: 1.2rem;
+  }
+
+  .today-forcast {
+    margin: 8px;
+  }
+
+  .daily-forcast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .display-weather-container {
+    display: block;
+  }
+
+  .daily-forcast {
+    gap: 10px;
+  }
+
+  .nav-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .weather-search-input {
+    width: 70%;
+  }
+
+  .weather-searc-btn {
+    width: 300px;
+    padding: 16px 8px;
+  }
+
+  .today-forcast {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 8px;
+  }
+
+  .city-name {
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .today-txt {
+    margin-bottom: 0px;
+  }
+
+  .today-weather-img {
+    margin-bottom: 0px;
+    font-size: 9rem;
+  }
+
+  .today-weather-description {
+    font-size: 1.2rem;
+    line-height: 12px;
+  }
+
+  .weather-searc-btn {
+    width: 200px;
   }
 }
