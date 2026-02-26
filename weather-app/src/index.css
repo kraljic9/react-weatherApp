@@ -150,3 +150,77 @@ body {
     font-size: 1.2rem;
   }
 }
+
+@media (425px <= width <= 768px) {
+  body {
+    height: auto;
+  }
+
+  .daily-weather-box {
+    border: 1px solid;
+  }
+
+  .daily-weather-img {
+    font-size: 2rem;
+  }
+
+  .day {
+    font-size: 1.2rem;
+  }
+
+  .today-forcast {
+    margin: 8px;
+  }
+
+  .daily-forcast {
+    flex-wrap: wrap;
+    grid-column: 1 / 4;
+    grid-row: 1 / 2;
+  }
+
+  .display-weather-container {
+    display: block;
+  }
+
+  .daily-forcast {
+    gap: 10px;
+  }
+
+  .nav-search {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .weather-search-input {
+    width: 70%;
+  }
+
+  .weather-searc-btn {
+    width: 300px;
+    padding: 16px 8px;
+  }
+}
+
+@media (425px <= width <= 660px) {
+  .today-forcast {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 8px;
+  }
+
+  .city-name {
+    margin-bottom: 0px;
+  }
+
+  .today-txt {
+    margin-bottom: 0px;
+  }
+
+  .today-weather-img {
+    margin-bottom: 0px;
+    font-size: 9rem;
+  }
+}
